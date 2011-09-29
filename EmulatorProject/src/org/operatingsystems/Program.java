@@ -53,10 +53,10 @@ public class Program {
         id = s;
     }
     
-    public String getInstruction(int index)
-    {
-        return instructions.get(index);
-    }
+//    public String getInstruction(int index)
+//    {
+//        return instructions.get(index);
+//    }
     
     public String getNextDataLine()
     {
