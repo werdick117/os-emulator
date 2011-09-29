@@ -4,8 +4,8 @@
  */
 package org.operatingsystems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import org.operatingsystems.memory.VirtualMemory;
+import org.operatingsystems.memory.MainMemory;
 
 /**
  *
@@ -13,7 +13,8 @@ import java.util.Arrays;
  */
 public class Computer {
 
-    private MainMemory myMemory;
+    private MainMemory computerMemory;
+    private VirtualMemory programMemory;
     private String accumulator;
     private boolean toggle;
     private int instructionCounter;
@@ -23,15 +24,20 @@ public class Computer {
     private Program program;
 
     public Computer() {
-        myMemory = new MainMemory();
+        computerMemory = new MainMemory();
+    }
+    
+    private void initExecutionEnvironment(Program myProgram) {
         toggle = false;
         executionTime = 0;
         linesPrinted = 0;
         instructionCounter = 0;
         accumulator = "    ";
         instructionRegister = "    ";
-        program = null;
-
+        
+        program = myProgram;
+        programMemory = new VirtualMemory(computerMemory);
+        loadProgram();
     }
 
     /**
@@ -43,20 +49,20 @@ public class Computer {
         int operand = Integer.parseInt(instructionRegister.substring(2));
 
         if (instruction.equals("LR")) {
-            accumulator = myMemory.getWord(operand);
+            accumulator = programMemory.getWord(operand);
         } else if (instruction.equals("SR")) {
-            myMemory.setWord(operand, accumulator);
+            programMemory.setWord(operand, accumulator);
         } else if (instruction.equals("CR")) {
-            toggle = accumulator.equals(myMemory.getWord(operand));
+            toggle = accumulator.equals(programMemory.getWord(operand));
         } else if (instruction.equals("BT")) {
             if (toggle) {
                 instructionCounter = operand;
             }
         } else if (instruction.equals("GD")) {
-            myMemory.setBlock(operand, program.getNextDataLine());
+            programMemory.setBlock(operand, program.getNextDataLine());
         } else if (instruction.equals("PD")) {
             linesPrinted++;
-            String[] myBlock = myMemory.getBlock(operand);
+            String[] myBlock = programMemory.getBlock(operand);
             int i = 0;
             String output = "";
             String word;
@@ -67,13 +73,18 @@ public class Computer {
             program.addToQueue(output);
         } 
     }
+    
+    private void loadProgram() {
+        for (int i = 0; i < program.instructions.size(); i ++)
+            programMemory.setBlock(i*10, program.instructions.get(i));
+    }
 
     /**
      * Runs the program represented by the text file
      * @param program - The program to be run
      */
     public void runProgram(Program myProgram) {
-        this.program = myProgram;
+        this.initExecutionEnvironment(myProgram);
 
         myProgram.addToQueue("id: " + program.getId() + "    exit code: normal termination");
          myProgram.addToQueue("    ");
@@ -81,7 +92,7 @@ public class Computer {
          myProgram.addToQueue("    ");
          myProgram.addToQueue("    ");
         
-        while (!(instructionRegister = program.getInstruction(instructionCounter)).equals("H   ")) {
+        while (!(instructionRegister = programMemory.getWord(instructionCounter)).equals("H   ")) {
             instructionCounter++;
             executionTime++;
             this.executeInstruction();
@@ -94,5 +105,6 @@ public class Computer {
          myProgram.addToQueue("    ");
         
         myProgram.printAll();
+        this.programMemory.recycle();
     }
 }

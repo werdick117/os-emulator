@@ -6,6 +6,7 @@ package org.operatingsystems;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -16,25 +17,23 @@ public class ProgramParser {
     public static Program parse(ArrayList<String> programText)
     {
         Program returnProgram = new Program();
-        ArrayList<String> instructionsPiece = new ArrayList<String>();
-        ArrayList<String> dataPiece = new ArrayList<String>();
+        ArrayList<String> instructionLines = new ArrayList<String>();
+        LinkedList<String> dataLines = new LinkedList<String>();
         
         returnProgram.setId(programText.remove(0));
         programText.remove(programText.size() - 1);
         
-        ArrayList<String> currentPiece = instructionsPiece;
+        List<String> currentPiece = instructionLines;
         for(String s: programText)
         {
             if(s.equals("$DTA"))
-                currentPiece = dataPiece;
+                currentPiece = dataLines;
             else
                 currentPiece.add(s);
         }
         
-        programText.remove(0);
-        
-        returnProgram.setInstructions(parseInstructions(instructionsPiece));
-        returnProgram.setData(parseData(dataPiece));
+        returnProgram.setInstructions(instructionLines);
+        returnProgram.setData(dataLines);
         
         return returnProgram;
     }
