@@ -1,1 +1,10 @@
-Hello WOrld:
+Currently about half of the programs error out and the other half either terminate in the way they ought to, or close to it (meaning the output 
+may still be erroneous even though it's giving us something).
+
+I figured I'd commit what I have now so you can take a look at it 
+or get started with your part of the doc.
+
+I get a weird sort of error where the instruction register somehow starts
+to get populated with data from the data cards, which should NOT be happening.
+
+I need to stop for now as I have work in the morning, but I'll pick this up again afterwards.

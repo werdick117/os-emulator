@@ -23,6 +23,10 @@ public class Frame {
     }
     
     public void setBlock(String data) {
+        // This way when we overwrite a block it gets wiped out instead of 
+        // potentially having leftover data at the end
+        contents = new String[10];
+        
         while(data.length()%4 != 0)
             data += " ";
         
@@ -31,6 +35,7 @@ public class Frame {
     }
     
     public void setWord(int index, String data) {
+        
         while(data.length()%4 != 0)
             data += " ";
         

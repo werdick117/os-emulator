@@ -14,48 +14,53 @@ import java.util.List;
  */
 public class ProgramParser {
     
-    public static Program parse(ArrayList<String> programText)
+    public static ArrayList<Program> parse(ArrayList<String> programText)
     {
-        Program returnProgram = new Program();
-        ArrayList<String> instructionLines = new ArrayList<String>();
-        LinkedList<String> dataLines = new LinkedList<String>();
+        ArrayList<Program> returnPrograms = new ArrayList<Program>();
         
-        returnProgram.setId(programText.remove(0));
-        programText.remove(programText.size() - 1);
-        
-        List<String> currentPiece = instructionLines;
-        for(String s: programText)
+        int j = 0;
+        for(int i=0; i < programText.size(); i++)
         {
-            if(s.equals("$DTA"))
-                currentPiece = dataLines;
-            else
-                currentPiece.add(s);
+            if(programText.get(i).startsWith("$AMJ"))
+            {
+              //  System.out.println(i);
+                j = i;
+                
+                while(!programText.get(j).startsWith("$EOJ"))
+                {
+                   // System.out.println(programText.get(j));
+                    j++;
+                    if(programText.get(j).startsWith("$EOJ"))
+                        returnPrograms.add(getProgram(programText,i,j));
+                }
+            }
         }
         
-        returnProgram.setInstructions(instructionLines);
-        returnProgram.setData(dataLines);
-        
-        return returnProgram;
+        return returnPrograms;
     }
     
-    private static ArrayList<String> parseInstructions(ArrayList<String> instructionsPiece)
-    {
-        ArrayList<String> returnList = new ArrayList<String>();
+    private static Program getProgram(ArrayList<String> programText, int startIndex, int endIndex)
+    {     
+        //System.out.println(startIndex + "   " + endIndex + "    " + programText.size());
+        Program retVal = new Program();
+        int j = 0;
         
-        for(String s : instructionsPiece)
-            for(int i = 0; i < s.length(); i+= 4)
-                returnList.add(s.substring(i,i+4));
+        for(int i = startIndex + 1; i <= endIndex; i++)
+        {
+            if(programText.get(i).startsWith("$DTA"))
+            {
+                j = i;
+                break;
+            }
+            
+            retVal.addInstruction(programText.get(i));
+        }
         
-        return returnList;
-    }
-    
-    private static LinkedList<String> parseData(ArrayList<String> dataPiece)
-    {
-        LinkedList<String> returnList = new LinkedList<String>();
+        for(int i = j+1; i < endIndex; i++)
+            retVal.addData(programText.get(i));
         
-        for(String s : dataPiece)
-            returnList.add(s);
+        retVal.setId(programText.get(startIndex));
         
-        return returnList;
+        return retVal;
     }
 }

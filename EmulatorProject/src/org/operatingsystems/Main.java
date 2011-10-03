@@ -15,14 +15,12 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    int CostOfThisProgramBecomingSkynet = Integer.MAX_VALUE;
-
     public static void main(String[] args) {
         try
         {
         //Read in the text file specified by the user
         Main myEmulator = new Main();
-        Program myPrograms = null;
+        ArrayList<Program>  myPrograms = null;
 
         Computer myComputer = new Computer();
 
@@ -35,29 +33,30 @@ public class Main {
         System.out.println("When finished enter \"end\" to stop executing programs");
 
         String input = reader.nextLine();
-
-        while (!input.equals("end")) {
                 
             try {
               
-                programText = myEmulator.readFile(input);
+                programText = myEmulator.readFile("C:\\Users\\Steve\\Desktop\\emu\\input.txt");
                 myPrograms = ProgramParser.parse(programText);
                 
-
-                myComputer.runProgram(myPrograms);
-                
-                
+                for(Program p : myPrograms)
+                {
+                    try
+                    {
+                    myComputer.runProgram(p);
+                    }catch(Exception e)
+                    {
+                        e.printStackTrace();
+                        System.out.println("\n\nERROR: " + p.getId() +"\n\n");
+                        
+                        p.printAll();
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Error reading from file.  Check your path name or file contents for errors.");
             }
 
-            System.out.println("Next program file path name: ");
-            input = reader.nextLine();
-
-        }
-
-        System.out.println("Program execution ceased.");
         }
         catch(Exception e)
         {
@@ -77,6 +76,8 @@ public class Main {
 
             while ((line = br.readLine()) != null) {
                 //Process the data, here we just print it out
+                
+                            
                 returnValue.add(line);
             }
             // dispose all the resources after using them.
