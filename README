@@ -1,3 +1,5 @@
+Steve 5/03
+-----------
 Currently about half of the programs error out and the other half either terminate in the way they ought to, or close to it (meaning the output 
 may still be erroneous even though it's giving us something).
 
@@ -8,3 +10,14 @@ I get a weird sort of error where the instruction register somehow starts
 to get populated with data from the data cards, which should NOT be happening.
 
 I need to stop for now as I have work in the morning, but I'll pick this up again afterwards.
+
+Mike 5/03
+-----------
+A few quick bug fixes.
+
+Changed the handling of nulls in print data to replace with an empty word,
+this was causing issues with program U402 which has empty words seperating valid data.
+	
+Added wrapExecution to computer, a simple ad-hoc wrapper method to ensure memory is properly recycled, 
+this was the source of some incorrect output due to memory not being recycled following unexpected errors.
+Feel free to rework or rename this as you see fit, it's a quick fix, not a permanent solution.

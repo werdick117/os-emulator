@@ -84,8 +84,13 @@ public class OperatingSystem {
             String output = "";
             String word;
             
-            while(i < 10 && (word = myBlock[i++]) != null)
-                output += word;
+            while(i < 10) {
+                word = myBlock[i++];
+                if (word == null)
+                    output += "    ";
+                else
+                    output += word;
+            }
             
             if(++linesPrinted > myComputer.getProgram().getLineLimit())
                 throw new LineLimitException();
