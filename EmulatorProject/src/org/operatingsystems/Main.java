@@ -43,7 +43,7 @@ public class Main {
                 {
                     try
                     {
-                    myComputer.runProgram(p);
+                    myComputer.wrapExecution(p);
                     }catch(Exception e)
                     {
                         e.printStackTrace();
