@@ -206,6 +206,20 @@ public class Computer {
         for (int i = 0; i < program.instructions.size(); i ++)
             programMemory.setBlock(i*10, program.instructions.get(i));
     }
+    
+    /**
+     * Wraps program run to ensure memory is released
+     *      This is an ad-hoc implementation meant to be a quick fix
+     * @param myProgram 
+     */
+    public void wrapExecution(Program myProgram) {
+        this.initExecutionEnvironment(myProgram);
+        try {
+            this.runProgram(myProgram);
+        } finally {
+            this.releaseProgramMemory();
+        }
+    }
 
     
     /**
@@ -213,7 +227,6 @@ public class Computer {
      * @param program - The program to be run
      */
     public void runProgram(Program myProgram) {
-        this.initExecutionEnvironment(myProgram);
 
         // Reserving space at the top for the program header
          myProgram.addToQueue("    ");
@@ -262,9 +275,6 @@ public class Computer {
         myProgram.addToQueue("    ");
         
         myProgram.printAll();
-        
-        // In the event of abnormal termination
-        releaseProgramMemory();
     }
     
     private String determineExitCode()
