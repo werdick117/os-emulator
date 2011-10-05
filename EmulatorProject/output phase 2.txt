@@ -1,0 +1,180 @@
+Please enter in the full file path name of each program file to be executed.
+When finished enter "end" to stop executing programs
+
+id: G101      Normal Termination
+IC: 23    IR: H       R: !       C: false    time: 23    lines printed: 1
+    
+    
+   I       AM   Y      AO   S   !       
+    
+    
+id: G102      Time Limit Exceeded
+IC: 11    IR: GD50    R: 3 LO    C: false    time: 12    lines printed: 3
+    
+    
+1 LOOP                                  
+2 LOOP                                  
+3 LOOP                                  
+    
+    
+id: U201      Normal Termination
+IC: 11    IR: H       R: Josh    C: false    time: 11    lines printed: 4
+    
+    
+Adam is in group 2,                     
+Josh is in group 2,                     
+and Erica is in group 2.                
+That is our group!                      
+    
+    
+id: U202      Invalid Page Fault
+IC: 10    IR: LR90    R: t       C: false    time: 10    lines printed: 0
+    
+    
+    
+    
+id: U301      Out of Data Cards
+IC: 9    IR: GD50    R:         C: false    time: 9    lines printed: 4
+    
+    
+Oh no! We will run out of data!         
+We're gonna crash!                      
+Wait for it!                            
+It's coming!                            
+    
+    
+id: U302      Invalid Operand
+IC: 21    IR: OP      R:         C: false    time: 21    lines printed: 0
+    
+    
+    
+    
+id: U401      Line Limit Exceeded
+IC: 41    IR: PD00    R: |||     C: false    time: 41    lines printed: 9
+    
+    
+Do you want to know the meaning of life 
+I can compute       the meaning of life 
+Computing please wait  [             ]  
+Computing please wait  [|            ]  
+Computing please wait  [||           ]  
+Computing please wait  [|||          ]  
+Computing please wait  [||||         ]  
+Computing please wait  [|||||        ]  
+Computing please wait  [||||||       ]  
+    
+    
+id: U402      Invalid Operand
+IC: 11    IR:         R: ew f    C: true    time: 35    lines printed: 4
+    
+    
+ne bish     two ish                     
+ed  ish     lue ish                     
+blk ish     lue ish                     
+old ish     ew fish                     
+    
+    
+id: G503      Line Limit Exceeded
+IC: 20    IR: PD70    R: STOP    C: true    time: 61    lines printed: 11
+    
+    
+ DO  RE  MI  FA  SO  LA  TI  DO         
+ DO  TI  LA  SO  FA  MI  RE  DO         
+ DO  DEER A FEMALE DEER                 
+ RE  DROP OF GOLDEN SUN                 
+ MI  NAME I CALL MYSELF                 
+ FA  LONG LONG WAY TO RUN               
+ SO  NEEDLE PULLING THREAD              
+ LA  NOTE TO FOLLOW SEW                 
+ TI  DRINK WITH JAM AND BREAD           
+ THAT WILL BRING US BACK TO  DO         
+ DO  RE  MI  FA  SO  LA  TI  DO         
+    
+    
+id: G504      Time Limit Exceeded
+IC: 2    IR: PD90    R:         C: false    time: 3    lines printed: 1
+    
+    
+THREE BLIND MICE                        
+    
+    
+id: U601      Invalid Page Fault
+IC: 2    IR: LR60    R:         C: false    time: 2    lines printed: 0
+    
+    
+    
+    
+id: U602      Normal Termination
+IC: 29    IR: H       R: math    C: false    time: 29    lines printed: 4
+    
+    
+We miss cusp                            
+We miss add sub mul and div             
+We miss math                            
+Please give us math!                    
+    
+    
+id: G701      Line Limit Exceeded
+IC: 16    IR: PD30    R: D       C: false    time: 16    lines printed: 2
+    
+    
+OS CLASS IS FUN                         
+OS CLASS IS VERY FUN                    
+    
+    
+id: G702      Normal Termination
+IC: 23    IR: H       R:  OOO    C: false    time: 23    lines printed: 5
+    
+    
+ OO  OOO                                
+O  O O                                  
+O  O OOO                                
+O  O   O                                
+ OO  OOO                                
+    
+    
+id: G801      Normal Termination
+IC: 52    IR: H       R:         C: false    time: 52    lines printed: 10
+    
+    
+	  HOORREEY!!! Assignment DONE.!!       
+             o                          
+     ___ o                              
+    /~ ~\                               
+   | 0 0 |                              
+   |  !  |                              
+    \*-*/                               
+ __ /   \ __                            
+                                        
+                                        
+    
+    
+id: G802      Invalid Operand
+IC: 36    IR: SRA0    R: 8       C: false    time: 36    lines printed: 6
+    
+    
+2   X 10 =  TWENTY                      
+3   X 10 =  THIRTY                      
+4   X 10 =  FOURTY                      
+5   X 10 =   FIFTY                      
+6   X 10 =   SIXTY                      
+7   X 10 =  SEVNTY                      
+    
+    
+id: U901      Normal Termination
+IC: 23    IR: H       R: R       C: false    time: 23    lines printed: 1
+    
+    
+B   O   O   K   K   E   E   P   E   R   
+    
+    
+id: U902      Invalid Operation
+IC: 21    IR: H       R:         C: true    time: 14    lines printed: 4
+    
+    
+MY HOUSE IS COOL                        
+MY HOUSE IS FUN                         
+    OUSE IS FUN                         
+LETS GO ON A                            
+    
+    

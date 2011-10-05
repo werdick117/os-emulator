@@ -1,0 +1,457 @@
+Trace for program: G102
+***********************
+
+
+***Cycle: 0***
+Slave Mode Execution
+Executing instruction: GD20
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 1   IR: GD20   R:        C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 1***
+Slave Mode Execution
+Executing instruction: PD20
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 2   IR: PD20   R:        C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 2***
+Slave Mode Execution
+Executing instruction: GD30
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 3   IR: GD30   R:        C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 3***
+Slave Mode Execution
+Executing instruction: LR30
+
+Final cycle salues of registers
+IC: 4   IR: LR30   R: 2 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 4***
+Slave Mode Execution
+Executing instruction: SR20
+
+Final cycle salues of registers
+IC: 5   IR: SR20   R: 2 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 5***
+Slave Mode Execution
+Executing instruction: PD20
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 6   IR: PD20   R: 2 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 6***
+Slave Mode Execution
+Executing instruction: GD40
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 7   IR: GD40   R: 2 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 7***
+Slave Mode Execution
+Executing instruction: LR40
+
+Final cycle salues of registers
+IC: 8   IR: LR40   R: 3 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 8***
+Slave Mode Execution
+Executing instruction: SR20
+
+Final cycle salues of registers
+IC: 9   IR: SR20   R: 3 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 9***
+Slave Mode Execution
+Executing instruction: PD20
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 10   IR: PD20   R: 3 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 10***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 11   IR: GD50   R: 3 LO   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 11***
+Slave Mode Execution
+
+Master Mode assumed
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 11   IR: GD50   R: 3 LO   C: false
+SI: 0   PI: 0   TI: 2
+
+
+Trace for program: U602
+***********************
+
+
+***Cycle: 0***
+Slave Mode Execution
+Executing instruction: GD30
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 1   IR: GD30   R:        C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 1***
+Slave Mode Execution
+Executing instruction: PD30
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 2   IR: PD30   R:        C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 2***
+Slave Mode Execution
+Executing instruction: LR30
+
+Final cycle salues of registers
+IC: 3   IR: LR30   R: We m   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 3***
+Slave Mode Execution
+Executing instruction: SR40
+
+Final cycle salues of registers
+IC: 4   IR: SR40   R: We m   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 4***
+Slave Mode Execution
+Executing instruction: LR31
+
+Final cycle salues of registers
+IC: 5   IR: LR31   R: iss    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 5***
+Slave Mode Execution
+Executing instruction: SR41
+
+Final cycle salues of registers
+IC: 6   IR: SR41   R: iss    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 6***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 7   IR: GD50   R: iss    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 7***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 8   IR: LR50   R: add    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 8***
+Slave Mode Execution
+Executing instruction: SR32
+
+Final cycle salues of registers
+IC: 9   IR: SR32   R: add    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 9***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 10   IR: GD50   R: add    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 10***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 11   IR: LR50   R: sub    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 11***
+Slave Mode Execution
+Executing instruction: SR33
+
+Final cycle salues of registers
+IC: 12   IR: SR33   R: sub    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 12***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 13   IR: GD50   R: sub    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 13***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 14   IR: LR50   R: mul    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 14***
+Slave Mode Execution
+Executing instruction: SR34
+
+Final cycle salues of registers
+IC: 15   IR: SR34   R: mul    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 15***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 16   IR: GD50   R: mul    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 16***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 17   IR: LR50   R: and    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 17***
+Slave Mode Execution
+Executing instruction: SR35
+
+Final cycle salues of registers
+IC: 18   IR: SR35   R: and    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 18***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 19   IR: GD50   R: and    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 19***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 20   IR: LR50   R: div    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 20***
+Slave Mode Execution
+Executing instruction: SR36
+
+Final cycle salues of registers
+IC: 21   IR: SR36   R: div    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 21***
+Slave Mode Execution
+Executing instruction: PD30
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 22   IR: PD30   R: div    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 22***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 23   IR: GD50   R: div    C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 23***
+Slave Mode Execution
+Executing instruction: LR50
+
+Final cycle salues of registers
+IC: 24   IR: LR50   R: math   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 24***
+Slave Mode Execution
+Executing instruction: SR42
+
+Final cycle salues of registers
+IC: 25   IR: SR42   R: math   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 25***
+Slave Mode Execution
+Executing instruction: PD40
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 26   IR: PD40   R: math   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 26***
+Slave Mode Execution
+Executing instruction: GD50
+
+Master Mode assumed
+Get Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 27   IR: GD50   R: math   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 27***
+Slave Mode Execution
+Executing instruction: PD50
+
+Master Mode assumed
+Print Data interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 28   IR: PD50   R: math   C: false
+SI: 0   PI: 0   TI: 0
+
+
+***Cycle: 28***
+Slave Mode Execution
+Executing instruction: H   
+
+Master Mode assumed
+Halt interrupt handled
+Resuming Slave Mode execution
+
+Final cycle salues of registers
+IC: 29   IR: H      R: math   C: false
+SI: 3   PI: 0   TI: 0

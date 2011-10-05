@@ -7,6 +7,7 @@ package org.operatingsystems;
 import org.operatingsystems.exceptions.BaseException;
 import org.operatingsystems.exceptions.GetDataException;
 import org.operatingsystems.exceptions.HaltException;
+import org.operatingsystems.exceptions.InvalidOperandException;
 import org.operatingsystems.exceptions.InvalidOperationException;
 import org.operatingsystems.exceptions.PrintDataException;
 import org.operatingsystems.memory.VirtualMemory;
@@ -139,6 +140,7 @@ public class Computer {
     private String instructionRegister;
     private Program program;
     private OperatingSystem os;
+    private boolean breakExecution;
     
     public Computer() {
         os = new OperatingSystem(this);
@@ -146,6 +148,7 @@ public class Computer {
     }
     
     private void initExecutionEnvironment(Program myProgram) {
+        breakExecution = false;
         toggle = false;
         os.setExecutionTime(0);
         os.setLinesPrinted(0);
@@ -167,6 +170,8 @@ public class Computer {
     private void executeInstruction() {
         String instruction = instructionRegister.substring(0, 2);
         
+        program.addToTrace("Executing instruction: " + instructionRegister);
+        
         if(instruction.equals("H "))
             throw new HaltException();
         
@@ -175,10 +180,12 @@ public class Computer {
         try
         {
             operand = Integer.parseInt(instructionRegister.substring(2));
+        //    System.out.println(instructionRegister);
         }
         catch(Exception e)
         {
-            throw new InvalidOperationException();
+            program.setExitCode("Invalid Operand");
+            throw new InvalidOperandException();
         }
         
         
@@ -199,7 +206,10 @@ public class Computer {
             throw new PrintDataException(operand);
         }
         else
+        {
+            program.setExitCode("Invalid Operation");
             throw new InvalidOperationException();
+        }
     }
     
     private void loadProgram() {
@@ -227,7 +237,9 @@ public class Computer {
      * @param program - The program to be run
      */
     public void runProgram(Program myProgram) {
-
+        
+      
+        
         // Reserving space at the top for the program header
          myProgram.addToQueue("    ");
          myProgram.addToQueue("    ");
@@ -239,6 +251,8 @@ public class Computer {
         {
             try
             {
+                program.addToTrace("\n\n***Cycle: " + os.getExecutionTime() + "***");
+                program.addToTrace("Slave Mode Execution");
               // Reset interrupt registers
                 TI = 0;
                 SI = 0;
@@ -263,24 +277,28 @@ public class Computer {
                 os.handleInterrupt(e);
             }
             
-        }while((SI == 0 || SI == 1 || SI == 2) && TI == 0 && PI == 0);
+            
+            program.addToTrace("\nFinal cycle salues of registers");
+            program.addToTrace("IC: " + instructionCounter +  "   IR: " + instructionRegister + "   R: " + accumulator + "   C: " + toggle);
+            program.addToTrace("SI: " + SI + "   PI: " + PI + "   TI: " + TI);
+            
+        }while(!breakExecution);
         
-        myProgram.setExitCode(determineExitCode());
         
-        myProgram.setPrintQueue(0, "id: " + program.getId() + "    exit code: " + program.getExitCode());
+        myProgram.setPrintQueue(0, "id: " + program.getId() + "      " + program.getExitCode());
         myProgram.setPrintQueue(1, "IC: " + instructionCounter + "    IR: " + instructionRegister + "    R: " + 
                 accumulator + "    C: " + toggle + "    time: " + os.getExecutionTime() + "    lines printed: " + os.getLinesPrinted());
         
         myProgram.addToQueue("    ");
         myProgram.addToQueue("    ");
         
-        myProgram.printAll();
+      //  myProgram.printAll();
     }
     
     private String determineExitCode()
     {
         if(TI != 0)
-            return "TI" + TI;
+            return "Time Limit Exceeded";
         else if(PI != 0)
             return "PI" + PI;
         else if(SI == 1 || SI == 2 || SI == 4)
@@ -299,4 +317,8 @@ public class Computer {
         this.programMemory.recycle();
     }
     
+    public void breakExecution()
+    {
+        this.breakExecution = true;
+    }
 }

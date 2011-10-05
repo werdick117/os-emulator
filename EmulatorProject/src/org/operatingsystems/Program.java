@@ -15,6 +15,7 @@ import java.util.List;
 public class Program {
     LinkedList<String> data;
     ArrayList<String> instructions;
+    ArrayList<String> trace;
     String id;
     ArrayList<String> printQueue;
     String exitCode;
@@ -23,10 +24,23 @@ public class Program {
     
     public Program()
     {
+        exitCode = "Normal Termination";
+        trace = new ArrayList<String>();
         printQueue = new ArrayList<String>();
         data = new LinkedList<String>();
         instructions = new ArrayList<String>();
         id = "    ";
+    }
+    
+    public void addToTrace(String s)
+    {
+        trace.add(s);
+    }
+    
+    public void printTrace()
+    {
+        for(String s : trace)
+            System.out.println(s);
     }
     
     public void printAll()
