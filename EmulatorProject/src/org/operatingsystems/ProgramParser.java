@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class ProgramParser {
     
-    public static ArrayList<Program> parse(ArrayList<String> programText)
+    public static ArrayList<PCB> parse(ArrayList<String> programText)
     {
-        ArrayList<Program> returnPrograms = new ArrayList<Program>();
+        ArrayList<PCB> returnPrograms = new ArrayList<PCB>();
         
         int j = 0;
         for(int i=0; i < programText.size(); i++)
@@ -39,10 +39,10 @@ public class ProgramParser {
         return returnPrograms;
     }
     
-    private static Program getProgram(ArrayList<String> programText, int startIndex, int endIndex)
+    private static PCB getProgram(ArrayList<String> programText, int startIndex, int endIndex)
     {     
         //System.out.println(startIndex + "   " + endIndex + "    " + programText.size());
-        Program retVal = new Program();
+        PCB retVal = new PCB();
         int j = 0;
         
         for(int i = startIndex + 1; i <= endIndex; i++)

@@ -4,6 +4,7 @@
  */
 package org.operatingsystems;
 
+import java.util.LinkedList;
 import org.operatingsystems.exceptions.BaseException;
 import org.operatingsystems.exceptions.GetDataException;
 import org.operatingsystems.exceptions.HaltException;
@@ -78,11 +79,11 @@ public class Computer {
         this.os = os;
     }
 
-    public Program getProgram() {
+    public PCB getProgram() {
         return program;
     }
 
-    public void setProgram(Program program) {
+    public void setProgram(PCB program) {
         this.program = program;
     }
 
@@ -138,16 +139,21 @@ public class Computer {
     private int executionTime;
     private int linesPrinted;
     private String instructionRegister;
-    private Program program;
+    private PCB program;
     private OperatingSystem os;
     private boolean breakExecution;
+    private LinkedList<String[]> buffers;
     
     public Computer() {
         os = new OperatingSystem(this);
         computerMemory = new MainMemory();
     }
     
-    private void initExecutionEnvironment(Program myProgram) {
+    private void initExecutionEnvironment(PCB myProgram) {
+        buffers = new LinkedList<String[]>();
+        for(int i = 0; i < 10; i++)
+            buffers.add(new String[10]);
+        
         breakExecution = false;
         toggle = false;
         os.setExecutionTime(0);
@@ -162,7 +168,25 @@ public class Computer {
         programMemory = new VirtualMemory(computerMemory);
         loadProgram();
     }
+    
+    public boolean hasBuffer()
+    {
+        if(buffers.peek() != null)
+            return true;
+        
+        return false;
+    }
 
+    public String[] getBuffer()
+    {
+        return buffers.pop();
+    }
+    
+    public void releaseBuffer()
+    {
+        buffers.add(new String[10]);
+    }
+    
     /**
      * Executes the given instruction
      * @param line - The instruction to be executed
@@ -222,7 +246,7 @@ public class Computer {
      *      This is an ad-hoc implementation meant to be a quick fix
      * @param myProgram 
      */
-    public void wrapExecution(Program myProgram) {
+    public void wrapExecution(PCB myProgram) {
         this.initExecutionEnvironment(myProgram);
         try {
             this.runProgram(myProgram);
@@ -236,7 +260,7 @@ public class Computer {
      * Runs the program represented by the text file
      * @param program - The program to be run
      */
-    public void runProgram(Program myProgram) {
+    public void runProgram(PCB myProgram) {
         
       
         

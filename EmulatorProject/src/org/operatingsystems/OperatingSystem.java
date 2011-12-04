@@ -21,7 +21,7 @@ public class OperatingSystem {
     private Computer myComputer;
     private int linesPrinted;
     private int executionTime;
-    private Program program;
+    private PCB program;
     
     public OperatingSystem(Computer c)
     {
