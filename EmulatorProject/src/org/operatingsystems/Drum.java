@@ -10,18 +10,18 @@ package org.operatingsystems;
  */
 public class Drum {
     
-    protected String[] contents;
+    protected String[][] contents;
     
     public Drum()
     {
-        contents = new String[100];
+        contents = new String[1000][];
     }
     
     /**
      * 
      * @return The valid track number or -1 if none are available
      */
-    public int hasTrack()
+    public int getTrack()
     {
         for(int i = 0; i < 100; i++)
             if(contents[i] == null)
@@ -30,12 +30,21 @@ public class Drum {
         return -1;
     }
     
-    public void writeToDrum(String s, int i)
+    public boolean hasTrack()
+    {
+        for(int i = 0; i < 100; i++)
+            if(contents[i] == null)
+                return true;
+        
+        return false;
+    }
+    
+    public void writeToDrum(String[] s, int i)
     {
         contents[i] = s;
     }
     
-    public String readFromDrum(int i)
+    public String[] readFromDrum(int i)
     {
         return contents[i];
     }

@@ -1,14 +1,17 @@
 package org.operatingsystems.memory;
 
+import java.util.ArrayList;
 import org.operatingsystems.exceptions.PageFault;
 
 public class VirtualMemory {
     
     private Integer PTR;
     private MainMemory memory;
+    private ArrayList<Integer> pageTable;
     
     public VirtualMemory(MainMemory realMemory) 
     {
+        this.pageTable = new ArrayList<Integer>();
         this.memory = realMemory;
         this.PTR = memory.nextFrame();
     }
@@ -41,12 +44,16 @@ public class VirtualMemory {
     
     public String getWord(int index) 
     {
-        return memory.getWord(translateAddress(index));
+        int q = translateAddress(index);
+      //  return memory.getWord(translateAddress(index));
+        return memory.getWord(q);
     }
+
     
     public void setBlock(int index, String data) 
     {
-        memory.setBlock(getAddress(index), data);
+        int q = getAddress(index);
+        memory.setBlock(q, data);
     }
     
     public void setWord(int index, String data) 
@@ -60,5 +67,15 @@ public class VirtualMemory {
             if (frameIndex != null)
                 memory.recycleFrame(Integer.valueOf(frameIndex.trim()));
         memory.recycleFrame(PTR);
+    }
+    
+    public void setDataBlock(int operand, String data)
+    {
+        int i = memory.randomFrame();
+        int j = operand / 10;
+        
+        memory.setDataWord(PTR, j, i);
+        
+        memory.setDataBlock(i, data);
     }
 }

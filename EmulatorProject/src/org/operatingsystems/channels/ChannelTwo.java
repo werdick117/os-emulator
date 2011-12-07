@@ -12,7 +12,10 @@ public class ChannelTwo {
     protected int timer;
     protected boolean busy;
     protected String[] buffer;
-
+    protected boolean interruptRaised;
+    
+    
+    
     public String[] getBuffer() {
         return buffer;
     }
@@ -36,14 +39,33 @@ public class ChannelTwo {
         this.timer = 0;
     }
     
-    public void startChannelTwo()
+    public void startChannelTwo(String[] buffer)
     {
         this.busy = true;
         
-        for(int i = 0; i < buffer.length; i++)
-            if(buffer[i] != null)
-                System.out.println(buffer[i]);
+        System.out.println(buffer[0]);
         
         this.busy = false;
     }
+    
+    public void checkTimer()
+    {
+        if(timer == 5)
+        {
+            busy = false;
+            interruptRaised = true;
+        }
+        else
+        {
+            busy = false;
+            interruptRaised = false;
+            timer++;
+        }
+    }
+    
+    public boolean isInterruptRaised()
+    {
+        return interruptRaised;
+    }
+    
 }

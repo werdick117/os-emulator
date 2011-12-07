@@ -17,7 +17,7 @@ public class MainMemory {
     
     public MainMemory()
     {
-        memory = new Frame[30];
+        memory = new Frame[300];
         for (int i = 0; i < memory.length; i ++)
             memory[i] = new Frame();
         RNG = new Random();
@@ -40,7 +40,7 @@ public class MainMemory {
         Integer frameIndex;
         Frame frame;
         do {
-            frameIndex = RNG.nextInt(20)+10;
+            frameIndex = RNG.nextInt(200)+20;
             frame = memory[frameIndex];
         } while(frame.isInUse());
         frame.reserve();
@@ -68,5 +68,16 @@ public class MainMemory {
     public void setWord(int index, String data)
     {
         memory[index/10].setWord(index%10, data);
+    }
+    
+    public void setDataBlock(int i, String data)
+    {
+        memory[i].setBlock(data);
+    }
+    
+    public void setDataWord(int PTR, int operand, int location)
+    {
+        String s = Integer.toString(location);
+        memory[PTR].setWord(operand, s);
     }
 }

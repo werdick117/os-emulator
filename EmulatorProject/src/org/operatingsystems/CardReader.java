@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -20,13 +21,13 @@ public class CardReader {
         {
         //Read in the text file specified by the user
         CardReader myEmulator = new CardReader();
-        ArrayList<PCB>  myPrograms = null;
+        ArrayList<PCB> myPrograms = null;
 
-        Computer myComputer = new Computer();
+        
 
         ArrayList<String> programText;
 
-       Scanner reader = new Scanner(System.in);
+        Scanner reader = new Scanner(System.in);
 
         //Read in the program data files one file at a time
         System.out.println("Please enter in the full file path name of each program file to be executed.");
@@ -36,37 +37,20 @@ public class CardReader {
                 
             try {
               
-                programText = myEmulator.readFile("C:\\Users\\Steve\\Desktop\\emu\\inputfinal.txt");
-                myPrograms = ProgramParser.parse(programText);
-               
+                programText = myEmulator.readFile("D:\\School\\Operating Systems\\phase 3\\test.txt");
+  //              myPrograms = ProgramParser.parse(programText);D:\School\Operating Systems\phase 3
                 
-                for(PCB p : myPrograms)
-                {
-                        
-                    try
-                    {
-                        p.addToTrace("\n\nTrace for program: " + p.getId());
-                        p.addToTrace("***********************");
-                        
-                      myComputer.wrapExecution(p);
+                Iterator cardReader = programText.iterator();
+                
+                Computer myComputer = new Computer(cardReader);
+                
                       
-                      
-                    //  p.printAll();
-                      
-                      if(p.getId().equals("U602") || p.getId().equals("G102"))
-                          p.printTrace();
-                    }catch(Exception e)
-                    {
-                        e.printStackTrace();
-
-                        System.out.println("\n\nERROR: " + p.getId() +"\n\n");
-                        
-                        
-                    }
-                }
+                    
+                
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Error reading from file.  Check your path name or file contents for errors.");
+
+               // System.out.println("Error reading from file.  Check your path name or file contents for errors.");
             }
                  
 
